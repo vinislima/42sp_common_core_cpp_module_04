@@ -1,0 +1,44 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Animal.cpp                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vinda-si <vinda-si@student.42sp.org.br>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/12/28 22:08:55 by vinda-si          #+#    #+#             */
+/*   Updated: 2025/12/31 18:16:12 by vinda-si         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "Animal.hpp"
+
+Animal::Animal() : type("Animal")
+{
+	std::cout << "[Animal] Default Constructor called" << std::endl;
+}
+
+Animal::Animal(const Animal& other)
+{
+	std::cout << "[Animal] Copy Constructor called" << std::endl;
+	*this = other;
+}
+
+Animal& Animal::operator=(const Animal& other)
+{
+	std::cout << "[Animal] Copy Assignment Operator called" << std::endl;
+	if (this != &other)
+	{
+		this->type = other.type;
+	}
+	return *this;
+}
+
+Animal::~Animal()
+{
+	std::cout << "[Animal] Destructor called" << std::endl;
+}
+
+std::string Animal::getType() const
+{
+	return this->type;
+}
